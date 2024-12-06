@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>꿀귀요미의 데이터 검색</title>
+    <style>
+      img {
+        vertical-align: middle;
+        height: 300px; /* 이미지 크기 조정 */
+      }
+    </style>
+  </head>
+  <body>
+    <h1>꿀귀요미의 데이터 검색 ❤️</h1>
+
+    <form action="/search" method="get">
+      검색할 칼럼:
+      <select name="column">
+        <option value="no">No</option>
+        <option value="jn">JN</option>
+        <option value="project">Project</option>
+        <option value="fi">FI</option>
+        <option value="brand">Brand</option>
+        <option value="product" selected>Product</option>
+        <option value="sku">SKU</option>
+        <option value="launch">Launch</option>
+        <option value="lab">Lab</option>
+        <option value="study_code">Study Code</option>
+        <option value="test_start">Test Start</option>
+        <option value="test_end">Test End</option>
+      </select>
+      검색어:
+      <input type="text" name="query" placeholder="검색어를 입력하세요" />
+
+      <input type="submit" value="검색" />
+    </form>
+    <br />
+    <img
+      src="{{ url_for('static', filename='images/snap.jpg') }}"
+      alt="로컬 이미지"
+    />
+    <img
+      src="{{ url_for('static', filename='images/june.jpeg') }}"
+      alt="로컬 이미지"
+    />
+  </body>
+</html>

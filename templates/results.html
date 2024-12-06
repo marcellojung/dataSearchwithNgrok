@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>검색 결과</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+      h1 {
+        text-align: center;
+        color: #333;
+      }
+      p {
+        text-align: center;
+      }
+      table {
+        margin: 20px auto;
+        border-collapse: collapse;
+        width: 95%;
+      }
+      th,
+      td {
+        border: 1px solid #ccc;
+        padding: 8px;
+        text-align: left;
+      }
+      th {
+        background-color: #f4f4f4;
+      }
+      tr:nth-child(even) {
+        background-color: #f9f9f9;
+      }
+      tr:hover {
+        background-color: #f1f1f1;
+      }
+      a {
+        display: block;
+        text-align: center;
+        margin: 20px auto;
+        text-decoration: none;
+        color: #007bff;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>검색 결과</h1>
+    {% if query %}
+    <p>검색어: <strong>{{ query }}</strong></p>
+    {% else %}
+    <p>모든 결과를 표시합니다.</p>
+    {% endif %} {% if results %}
+    <table>
+      <thead>
+        <tr>
+          <th>No.</th>
+          <th>JN</th>
+          <th>Project</th>
+          <th>FI</th>
+          <th>Brand</th>
+          <th>Product</th>
+          <th>SKU</th>
+          <th>Launch</th>
+          <th>Lab</th>
+          <th>Study Code</th>
+          <th>Test Start</th>
+          <th>Test End</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in results %}
+        <tr>
+          <td>{{ row[0] }}</td>
+          <!-- 'no.' -->
+          <td>{{ row[1] }}</td>
+          <!-- 'jn' -->
+          <td>{{ row[2] }}</td>
+          <!-- 'project' -->
+          <td>{{ row[3] }}</td>
+          <!-- 'fi' -->
+          <td>{{ row[4] }}</td>
+          <!-- 'brand' -->
+          <td>{{ row[5] }}</td>
+          <!-- 'product' -->
+          <td>{{ row[6] }}</td>
+          <!-- 'sku' -->
+          <td>{{ row[7] }}</td>
+          <!-- 'launch' -->
+          <td>{{ row[8] }}</td>
+          <!-- 'lab' -->
+          <td>{{ row[9] }}</td>
+          <!-- 'study_code' -->
+          <td>{{ row[10] }}</td>
+          <!-- 'test_start' -->
+          <td>{{ row[11] }}</td>
+          <!-- 'test_end' -->
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% else %}
+    <p>결과가 없습니다.</p>
+    {% endif %}
+
+    <a href="/">다시 검색</a>
+  </body>
+</html>
